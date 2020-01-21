@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Admin Login | Computer Warriors Education Pvt. Ltd.</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="Vicky Kumar" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="shortcut icon" href="/assets/app/images/favicon.ico">
+
+    <link href="/assets/app/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/app/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="/assets/app/css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+
+<!-- Begin page -->
+<div class="accountbg"></div>
+<div class="wrapper-page">
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="text-center">
+                <img src="/upload/admin-logo.jpg" alt="logo">
+            </div>
+
+            <div class="px-3 pb-3">
+                <form class="form-horizontal m-t-20" method="post">
+
+                    {% if status != 200 %}
+
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input class="form-control" type="text" name="username" required="" placeholder="Username">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input class="form-control" type="password" required="" name="password" placeholder="Password">
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center row m-t-20">
+                        <div class="col-12">
+                            <button class="btn btn-success waves-effect waves-light" type="submit"><i class="fas fa-sign-in-alt"></i>&nbsp;Log In</button>
+                        </div>
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- jQuery  -->
+<script src="/assets/app/js/jquery.min.js"></script>
+<script src="/assets/app/js/popper.min.js"></script>
+<script src="/assets/app/js/bootstrap.min.js"></script>
+<script src="/assets/app/js/modernizr.min.js"></script>
+<script src="/assets/app/js/detect.js"></script>
+<script src="/assets/app/js/fastclick.js"></script>
+<script src="/assets/app/js/jquery.blockUI.js"></script>
+<script src="/assets/app/js/waves.js"></script>
+<script src="/assets/app/js/jquery.nicescroll.js"></script>
+<!-- App js -->
+<script src="/assets/app/js/app.js"></script>
+<script>
+    {% if status == 200 %}
+    window.alert("Login Successfully.");
+    window.location.href = '/admin/dashboard.php';
+    {% endif %}
+    {% if status == 404 %}
+    window.alert("Please enter valid login ud & password.");
+    {% endif %}
+</script>
+</body>
+</html>

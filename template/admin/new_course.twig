@@ -1,0 +1,64 @@
+{% extends "layout.twig" %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <h4 class="page-title">New Course</h4>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <form method="post">
+                        <div class="form-group row">
+                            <label for="user_name" class="col-sm-4 col-form-label text-left">Course Name</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" required name="name" placeholder="Enter Course Name" id="user_name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-4 col-form-label text-left">Full Name</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" required name="full_name" placeholder="Enter course full name" id="password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="conf_password" class="col-sm-4 col-form-label text-left">Duration</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" type="text" required name="duration" placeholder="Enter Course duration" id="conf_password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="textarea" class="col-sm-4 col-form-label text-left">Description</label>
+                            <div class="col-sm-8">
+                                <textarea id="textarea" name="desc" class="form-control" maxlength="225" rows="3" placeholder="Enter the course description"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-plus-square"></i>&nbsp;Add</button>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        {% if status == 400 %}
+        window.alert('Course Already exist.');
+        {% endif %}
+        {% if status == 200 %}
+        window.alert('Course Added successfully.');
+        window.location.href = '/admin/course_list.php';
+        {% endif %}
+        {% if status == 404 %}
+        window.alert('Error, Please try again.');
+        {% endif %}
+    </script>
+{% endblock %}

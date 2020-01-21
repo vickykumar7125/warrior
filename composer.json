@@ -1,0 +1,10 @@
+{
+    "require": {
+        "catfan/medoo": "^1.7",
+        "endroid/qr-code": "^3.7",
+        "twig/twig": "^3.0",
+        "setasign/fpdf": "^1.8",
+        "vlucas/phpdotenv": "^4.1",
+        "ext-json": "*"
+    }
+}
